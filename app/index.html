@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Atlas — GTA VI Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5</p>
+    <h1>Leonida Trophy Atlas</h1>
+    <p class="tagline">Every trophy in the state of Leonida — guides, a roadmap to the platinum, and a tracker that remembers your progress.</p>
+    <p class="tagline tagline-sub">28 of the 55 are hidden story trophies — switch on “Hide story spoilers” below and their names stay secret until you earn them.</p>
+    <div class="stats" id="stats">
+      <div class="stat"><span class="num" id="stat-earned">0</span><span class="lbl">earned</span></div>
+      <div class="stat"><span class="num" id="stat-total">55</span><span class="lbl">trophies</span></div>
+      <div class="stat"><span class="num" id="stat-pct">0%</span><span class="lbl">complete</span></div>
+      <div class="stat"><span class="num" id="stat-hours">~200h</span><span class="lbl">to platinum</span></div>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <nav class="views">
+      <button class="view-btn active" data-view="checklist" type="button">Checklist</button>
+      <button class="view-btn" data-view="roadmap" type="button">Roadmap</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="toolbar">
+      <input id="search" type="search" placeholder="Search trophies, guides, sources…" aria-label="Search trophies">
+      <label class="spoiler-wrap"><input id="spoiler-toggle" type="checkbox"> Hide story spoilers</label>
+    </div>
+    <div class="filters" id="filters">
+      <div class="filter-group" data-group="grade">
+        <span class="filter-label">Grade:</span>
+        <button type="button" data-grade="all" class="active">All</button>
+        <button type="button" data-grade="platinum">Platinum</button>
+        <button type="button" data-grade="gold">Gold</button>
+        <button type="button" data-grade="silver">Silver</button>
+        <button type="button" data-grade="bronze">Bronze</button>
+      </div>
+      <div class="filter-group" data-group="kind">
+        <span class="filter-label">Kind:</span>
+        <button type="button" data-kind="all" class="active">All</button>
+        <button type="button" data-kind="story">Story</button>
+        <button type="button" data-kind="missable">Missable</button>
+        <button type="button" data-kind="collectibles">Collectibles</button>
+        <button type="button" data-kind="activities">Activities</button>
+        <button type="button" data-kind="online">Online</button>
+      </div>
+      <div class="filter-group" data-group="earned">
+        <span class="filter-label">Show:</span>
+        <button type="button" data-earned="all" class="active">All</button>
+        <button type="button" data-earned="todo">Not earned</button>
+        <button type="button" data-earned="done">Earned</button>
+      </div>
+    </div>
+    <div class="kind-breakdown" id="kind-breakdown"></div>
+    <p class="count" id="count"></p>
+    <ul class="trophy-list" id="trophy-list"></ul>
+    <p class="empty" id="empty" hidden>No trophies match your filters.</p>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>The road to the platinum</h2>
+    <p class="roadmap-intro">Roughly <strong>200 hours</strong> from the opening mission to the last collectible. There is <strong>no mission replay</strong>, so the one missable trophy must be handled during the story — and the game gives you <strong>15 manual save slots</strong>, so keep a safety save before the final missions.</p>
+    <div class="warn-box">
+      <strong>⚠ The one missable trophy:</strong> <em>Positive Mental Attitude</em> — meditate at all 18 spots across Leonida. No mission replay means a missed spot locks it for that playthrough. Sweep the spots early, before the endgame.
+    </div>
+    <ol class="roadmap">
+      <li>
+        <h3>Phase 1 — Story first <span class="phase-time">~60h</span></h3>
+        <p>Play the main story in order, chapters 1–4 through the final mission. Take stranger strands (Andy, Kenton, Billy, Randy, Tyrone, Bret) as their markers appear — eight full strands earn <em>Strangers &amp; Freaks</em>. Along the way, meditate at every spot you pass: that is the only missable trophy.</p>
+      </li>
+      <li>
+        <h3>Phase 2 — Side activities <span class="phase-time">~50h</span></h3>
+        <p>Sample all 9 activity types, then chase the activity trophies: 250 stunts, 42 gold Shooting Range challenges, 14 drone-race wins, 20 race wins, fishing vs Cal, arcade, bowling, bank vaults, armored trucks, gang operations and the rest. Keep laundering Marked Bills and spending in shops — those totals tick up naturally.</p>
+      </li>
+      <li>
+        <h3>Phase 3 — Collectibles <span class="phase-time">~60h</span></h3>
+        <p>Work the map systematically: 3 Collectible Card sets, 100 WAiNK It photo spots, 100 vehicles discovered, 52 areas explored, all 8 garage properties, 10 Scooter Bros registrations. Use a checklist and clear one region at a time instead of criss-crossing the state.</p>
+      </li>
+      <li>
+        <h3>Phase 4 — Cleanup &amp; 100% <span class="phase-time">~30h</span></h3>
+        <p>Mop up the remaining challenges (50 of them), any stray activity trophies, then check the pause-menu completion tracker. <em>A Long Road</em> (100% completion) is the last gate before the platinum, <em>Vice Got a Price!</em>, pops.</p>
+      </li>
+    </ol>
+    <p class="roadmap-note">Cheats disable trophies — keep them off for the whole run.</p>
+  </section>
+
+  <section class="io">
+    <h2>Your tracker data</h2>
+    <p>Progress is saved in this browser automatically. Export a backup, or import one to restore it.</p>
+    <div class="io-buttons">
+      <button id="export-btn" type="button">Export progress (.json)</button>
+      <label class="import-label">Import progress <input id="import-file" type="file" accept="application/json" hidden></label>
+      <button id="reset-btn" type="button">Reset progress</button>
+    </div>
+    <p class="io-status" id="io-status" role="status"></p>
+  </section>
+
+  <footer>
+    <p>Leonida Trophy Atlas — an unofficial fan guide. Trophy names, descriptions and grades follow the official list; guides are written in the site's own words. Sources consulted: PowerPyx, games.gg, KeenGamer, Mobalytics, GameMapa, Insider Gaming, eGamers, Push Square, Shacknews, GTADojo, OutputLag, TheGamesWiki, GameTrek, WeHunt, Exophase, PSNProfiles.</p>
+    <p>Works fully offline — this page loads no network resources.</p>
+  </footer>
+</main>
+<script src="./app.js"></script>
+</body>
+</html>
